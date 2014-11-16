@@ -2,5 +2,7 @@
   "name": "tabswitcher",
   "version": "0.0.0",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "zepto": "~1.1.4"
+  }
 }
