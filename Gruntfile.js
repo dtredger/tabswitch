@@ -12,6 +12,7 @@ module.exports = function (grunt) {
 	// Load grunt tasks automatically
 	require('load-grunt-tasks')(grunt);
 	grunt.loadNpmTasks('grunt-contrib-coffee');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
@@ -298,12 +299,13 @@ module.exports = function (grunt) {
 		coffee: {
 			build: {
 				expand: true,
-				cwd: 'source',
+				cwd: '<%= config.app %>',
+				dest: '<%= config.dist %>',
 				src: [ '**/*.coffee' ],
-				dest: 'build',
 				ext: '.js'
 			}
 		}
+
 	});
 
 	grunt.registerTask('debug', function () {
@@ -336,7 +338,8 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', [
 		'jshint',
-		'test',
-		'build'
+		// 'test',
+		'build',
+		'watch'
 	]);
 };
