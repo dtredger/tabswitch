@@ -40,4 +40,6 @@ class Application
 
 app = new Application()
 window.addEventListener('keyup', (e)->
-	app.hotKeyListener(e), false)
+	app.hotKeyListener(e))
+
+# , false)

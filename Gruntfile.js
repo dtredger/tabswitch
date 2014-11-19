@@ -13,6 +13,8 @@ module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt);
 	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-bower-install');
+
 
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
@@ -130,10 +132,24 @@ module.exports = function (grunt) {
 
 		// Automatically inject Bower components into the HTML file
 		bowerInstall: {
-			app: {
+			target: {
+				// Point to the files that should be updated when
+				// you run `grunt bower-install`
 				src: [
-					'<%= config.app %>/*.html'
-				]
+					'app/popup.html'
+					// 'app/views/**/*.html',   // .html support...
+					// 'app/views/**/*.jade',   // .jade support...
+					// 'app/styles/main.scss',  // .scss & .sass support...
+					// 'app/config.yml'         // and .yml & .yaml support out of the box!
+				],
+				// Optional:
+				// ---------
+				//   cwd: '',
+				dependencies: true,
+				devDependencies: true,
+				//   exclude: [],
+				//   fileTypes: {},
+				//   ignorePath: ''
 			}
 		},
 
