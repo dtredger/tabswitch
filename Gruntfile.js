@@ -340,22 +340,21 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', [
 		'clean:dist',
-		'chromeManifest:dist',
 		'useminPrepare',
-		'concurrent:dist',
-		'coffee',	
+		'concurrent:dist',	
 		'cssmin',
 		'concat',
+		'coffee',
 		'uglify',
 		'copy',
 		'usemin',
-		'compress'
+		'compress',
+		'chromeManifest:dist'
 	]);
 
 	grunt.registerTask('default', [
+		'bowerInstall',
 		'jshint',
-		// 'test',
-		'build',
 		'watch'
 	]);
 };

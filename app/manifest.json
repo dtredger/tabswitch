@@ -1,8 +1,8 @@
 {
-    "name": "__MSG_appName__",
-    "version": "0.0.9",
+    "name": "Tab Searcher",
+    "version": "0.0.21",
     "manifest_version": 2,
-    "description": "__MSG_appDescription__",
+    "description": "Find the tab you want instantly",
     "icons": {
         "16": "images/icon-16.png",
         "128": "images/icon-128.png"
@@ -19,13 +19,25 @@
             "19": "images/icon-19.png",
             "38": "images/icon-38.png"
         },
-        "default_title": "tabSwitcher",
+        "default_title": "tabSearcher",
         "default_popup": "popup.html"
     },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": [
+                "scripts/content.js",
+                "scripts/search.js",
+                "bower_components/zepto/zepto.js"
+            ],
+            "css": []
+        }
+    ],
     "permissions": [
         "tabs",
         "history",
         "management",
+        "storage",
         "http://*/*",
         "https://*/*"
     ]
